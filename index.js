@@ -11,17 +11,17 @@ if (process.argv[2] && process.argv[3]) {
     luminosity: userInput2,
     hue: userInput1,
   });
+} else if (process.argv[2] === 'ask') {
+  const userHue = prompt.get('Choose hue:');
+  const userLum = prompt.get('Choose luminosity (dark or light):');
+  color = randomColor({
+    luminosity: userLum,
+    hue: userHue,
+  });
 } else if (process.argv[2]) {
   color = randomColor({
     luminosity: 'random',
     hue: userInput1,
-  });
-} else if (process.argv[2] === 'ask') {
-  const userHue = prompt('Choose hue:');
-  const userLum = prompt('Choose luminosity (dark or light):');
-  color = randomColor({
-    luminosity: userLum,
-    hue: userHue,
   });
 } else {
   color = randomColor({
